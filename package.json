@@ -1,0 +1,22 @@
+{
+  "name": "bassbuddy",
+  "version": "1.0.0",
+  "description": "FetchApp",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cchester11/bassBuddy.git"
+  },
+  "author": "Charles Chester",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cchester11/bassBuddy/issues"
+  },
+  "homepage": "https://github.com/cchester11/bassBuddy#readme",
+  "dependencies": {
+    "express": "^4.17.2"
+  }
+}
