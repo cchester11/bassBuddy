@@ -1,8 +1,31 @@
+html {
+    overflow: hidden;
+    position: relative;
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
 body {
     background-color: gray;
+    min-height: 100vh;
 }
 
 label {
     font-weight: lighter;
     color: black;
+}
+
+#footer {
+    background-color: skyblue;
+    padding: 20px;
+    font-weight: bolder;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    overflow: hidden;
 }

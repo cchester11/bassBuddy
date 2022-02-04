@@ -2,7 +2,7 @@ const longitude = document.getElementById('longitude').value
 const latitude = document.getElementById('latitude').value
 const date = document.getElementById("date").value
 const tz = document.getElementById('tz').value
-const infoArea = document.getElementById('#info_area')
+// const section = document.getElementById('section')
 
 function fetchUrl() {
     fetch('https://api.solunar.org/solunar/' + longitude + ',' + latitude + ',' + date + ',' + tz, {
@@ -13,18 +13,9 @@ function fetchUrl() {
             return results.json()
         })
         .then(data => {
-            console.log(data)
-            infoArea.textContent = data
+            let sunrise = data.sunRise
+            console.log(sunrise)
         })
-}      
+}
 
-// const fetchUrl = () => {
-//     fetch('https://www.fishwatch.gov/api/species')
-//     .then(results => {
-//         return results.json()
-//     })
-//     .then(data => {
-//         console.log(data)
-//     })
-// }
 
