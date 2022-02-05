@@ -1,9 +1,25 @@
-const longitude = document.getElementById('longitude').value
-const latitude = document.getElementById('latitude').value
-const date = document.getElementById("date").value
-const tz = document.getElementById('tz').value
+let longitude = document.getElementById('longitude').value
+let latitude = document.getElementById('latitude').value
+let date = document.getElementById("date").value
+let tz = document.getElementById('tz').value
 let searchBtn = document.querySelector('#searchBtn')
-// const section = document.getElementById('section')
+// let section = document.getElementById('section')
+
+function loadTask() {
+    longitude = JSON.parse(localStorage.getItem('longitude'))
+    latitude = JSON.parse(localStorage.getItem('latitude'))
+    date = JSON.parse(localStorage.getItem('date'))
+    tz = JSON.parse(localStorage.getItem('tz'))
+}
+
+function saveTask() {
+    localStorage.setItem('longitude', JSON.stringify(longitude))
+    localStorage.setItem('latitude', JSON.stringify(latitude))
+    localStorage.setItem('date', JSON.stringify(date))
+    localStorage.setItem('tz', JSON.stringify(tz))
+
+    document.location.reload()
+}
 
 function fetchUrl() {
     fetch('https://api.solunar.org/solunar/' + longitude + ',' + latitude + ',' + date + ',' + tz, {
@@ -16,22 +32,8 @@ function fetchUrl() {
         .then(data => {
             let sunrise = data.sunRise
             console.log(sunrise)
+            saveTask();
         })
 }
 
-function saveTask() {
-    localStorage.setItem('longitude', JSON.stringify(longitude))
-    localStorage.setItem('latitude', JSON.stringify(latitude))
-    localStorage.setItem('date', JSON.stringify(date))
-    localStorage.setItem('tz', JSON.stringify(tz))
-}
-
-function loadTask() {
-    JSON.parse(localStorage.getItem('longitude'))
-    JSON.parse(localStorage.getItem('latitude'))
-    JSON.parse(localStorage.getItem('date'))
-    JSON.parse(localStorage.getItem('tz'))
-}
-
-searchBtn.addEventListener('submit', saveTask)
-
+loadTask()
