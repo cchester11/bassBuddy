@@ -1,28 +1,18 @@
-let longitude = document.getElementById('longitude').value
-let latitude = document.getElementById('latitude').value
-let date = document.getElementById("date").value
-let tz = document.getElementById('tz').value
 let searchBtn = document.querySelector('#searchBtn')
-// let section = document.getElementById('section')
 
-function loadTask() {
-    longitude = JSON.parse(localStorage.getItem('longitude'))
-    latitude = JSON.parse(localStorage.getItem('latitude'))
-    date = JSON.parse(localStorage.getItem('date'))
-    tz = JSON.parse(localStorage.getItem('tz'))
-}
-
-function saveTask() {
-    localStorage.setItem('longitude', JSON.stringify(longitude))
-    localStorage.setItem('latitude', JSON.stringify(latitude))
-    localStorage.setItem('date', JSON.stringify(date))
-    localStorage.setItem('tz', JSON.stringify(tz))
+function saveTask(one, two, three, four) {
+    localStorage.setItem('longitude', JSON.stringify(one))
+    localStorage.setItem('latitude', JSON.stringify(two))
+    localStorage.setItem('date', JSON.stringify(three))
+    localStorage.setItem('tz', JSON.stringify(four))
 
     document.location.reload()
 }
 
-function fetchUrl() {
-    fetch('https://api.solunar.org/solunar/' + longitude + ',' + latitude + ',' + date + ',' + tz, {
+const fetchUrl = (event) => {
+    event.preventDefault()
+
+    fetch('https://api.solunar.org/solunar/' + longitude.value + ',' + latitude.value + ',' + date.value + ',' + tz.value, {
         method: "GET",
         headers: { "Content-Type": "application/JSON" }
     })
@@ -30,10 +20,17 @@ function fetchUrl() {
             return results.json()
         })
         .then(data => {
-            let sunrise = data.sunRise
-            console.log(sunrise)
-            saveTask();
+            console.log(data)
+            saveTask(longitude.value, latitude.value, date.value, tz.value);
         })
 }
 
+function loadTask() { 
+    JSON.parse(localStorage.getItem('longitude'))
+    JSON.parse(localStorage.getItem('latitude'))
+    JSON.parse(localStorage.getItem('date'))
+    JSON.parse(localStorage.getItem('tz'))
+}
+
+searchBtn.addEventListener('click', fetchUrl)
 loadTask()

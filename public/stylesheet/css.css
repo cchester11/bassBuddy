@@ -14,9 +14,29 @@ body {
     min-height: 100vh;
 }
 
+#header {
+    font-size:large;
+    font-weight: lighter;
+    margin: 13px;
+}
+
+nav:hover {
+    background-color: skyblue;
+}
+
 label {
     font-weight: lighter;
     color: black;
+}
+
+#bass {
+    color: yellow;
+    font-weight: bolder;
+}
+
+#buddy {
+    color: green;
+    font-weight: bolder;
 }
 
 #footer {
