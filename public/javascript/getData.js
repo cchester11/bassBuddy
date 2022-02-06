@@ -23,6 +23,10 @@ const fetchUrl = (event) => {
             console.log(data)
             saveTask(longitude.value, latitude.value, date.value, tz.value);
             sunrise.textContent = data.sunRise
+            suntransit.textContent = data.sunTransit
+            sunset.textContent = data.sunSet
+            moonrise.textContent = data.moonRise
+            moontransit.textContent = data.moonTransit
         })
 }
 
