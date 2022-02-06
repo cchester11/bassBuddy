@@ -22,6 +22,7 @@ const fetchUrl = (event) => {
         .then(data => {
             console.log(data)
             saveTask(longitude.value, latitude.value, date.value, tz.value);
+            sunrise.textContent = data.sunRise
         })
 }
 

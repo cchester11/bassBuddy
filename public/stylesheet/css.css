@@ -14,7 +14,7 @@ body {
     min-height: 100vh;
 }
 
-#header {
+.header {
     font-size:large;
     font-weight: lighter;
     margin: 13px;
