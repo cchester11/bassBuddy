@@ -20,7 +20,7 @@ body {
     margin: 13px;
 }
 
-nav:hover {
+nav{
     background-color: skyblue;
 }
 
