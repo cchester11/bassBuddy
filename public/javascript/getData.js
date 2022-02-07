@@ -25,6 +25,7 @@ const fetchUrl = (event) => {
             sunset.textContent = "Sun Set: " + data.sunSet
             moonrise.textContent = "Moon Rise: " + data.moonRise
             moontransit.textContent = "Moon Transit: " + data.moonTransit;
+            moonset.textContent = "Moon Set: " + data.moonSet
 
             longitude.value = ''
             latitude.value = ''
