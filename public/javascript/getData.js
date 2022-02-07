@@ -5,8 +5,6 @@ function saveTask(one, two, three, four) {
     localStorage.setItem('latitude', JSON.stringify(two))
     localStorage.setItem('date', JSON.stringify(three))
     localStorage.setItem('tz', JSON.stringify(four))
-
-    document.location.reload()
 }
 
 const fetchUrl = (event) => {
@@ -22,11 +20,16 @@ const fetchUrl = (event) => {
         .then(data => {
             console.log(data)
             saveTask(longitude.value, latitude.value, date.value, tz.value);
-            sunrise.textContent = data.sunRise
-            suntransit.textContent = data.sunTransit
-            sunset.textContent = data.sunSet
-            moonrise.textContent = data.moonRise
-            moontransit.textContent = data.moonTransit
+            sunrise.textContent = "Sun Rise:  " + data.sunRise
+            suntransit.textContent = "Sun Transit: " + data.sunTransit
+            sunset.textContent = "Sun Set: " + data.sunSet
+            moonrise.textContent = "Moon Rise: " + data.moonRise
+            moontransit.textContent = "Moon Transit: " + data.moonTransit;
+
+            longitude.value = ''
+            latitude.value = ''
+            date.value = ''
+            tz.value = ''
         })
 }
 
@@ -38,4 +41,3 @@ function loadTask() {
 }
 
 searchBtn.addEventListener('click', fetchUrl)
-loadTask()
