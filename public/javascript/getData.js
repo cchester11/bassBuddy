@@ -19,18 +19,29 @@ const fetchUrl = (event) => {
         })
         .then(data => {
             console.log(data)
+
             saveTask(longitude.value, latitude.value, date.value, tz.value);
+
             sunrise.textContent = "Sun Rise:  " + data.sunRise
             suntransit.textContent = "Sun Transit: " + data.sunTransit
             sunset.textContent = "Sun Set: " + data.sunSet
             moonrise.textContent = "Moon Rise: " + data.moonRise
             moontransit.textContent = "Moon Transit: " + data.moonTransit;
             moonset.textContent = "Moon Set: " + data.moonSet
+            moonphase.textContent = "Moon Phase: " + data.moonPhase
+            moonillumination.textContent = "Moon Illumination: " + data.moonIllumination
+            dayrating.textContent = "Quality: " + data.dayRating
 
             longitude.value = ''
             latitude.value = ''
             date.value = ''
             tz.value = ''
+
+            if(data.dayRating > 2) {
+                interpretation.textContent = "Today is a good day for fishing. If the temperature is low, cast deep and locate schools. Use something like a crank with a lip for diving deep."
+            } else if(data.dayRating < 2) {
+                interpretation.textContent = "Conditions today probably present very high or low pressures with not much change in pressure over the course of the day. You will have to fish aggressively. Entice the fish to impulsively attack your bait. Think jerk baits and rattle traps."
+            }
         })
 }
 
