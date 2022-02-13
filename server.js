@@ -1,40 +1,25 @@
 // imports
 const express = require('express')
-const mysql = require('mysql2')
-const path = require('path')
+const connection = require('./config/connection')
 
 // declarations
 const app = express()
 const PORT = 3001 || process.env.PORT
 
-// middleware options
-app.use(express.urlencoded({extended: false}))
-app.use(express.json())
-
-// connection to database
-const connection = mysql.createConnection({
-  host: "localhost",
-  user: 'root',
-  database: 'catchLog_db',
-  password: "Ho99lulu3!2"
-})
+// run the config file
 connection.connect(() => {
   console.log('connected')
 })
 
+// middleware options
+app.use(express.urlencoded({extended: false}))
+app.use(express.json())
+
 // static use of files in directory for transport to the client
 app.use(express.static(__dirname + '/public'))
 
-// routes (may move into routes file with an import of express.Router())
-app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, '/index.html'))
-})
-app.get('/data', (req, res) => {
-  res.sendFile(path.join(__dirname, '/public/data.html'))
-})
-app.get('/catchlog', (req, res) => {
-  res.sendFile(path.join(__dirname, '/public/catchLog.html'))
-})
+// access routes
+app.use(require('./routes'))
 
 // initialize the server with command "npm start"
 app.listen(PORT, () => {
