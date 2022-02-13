@@ -7,6 +7,7 @@ const path = require('path')
 const app = express()
 const PORT = 3001 || process.env.PORT
 
+// middleware options
 app.use(express.urlencoded({extended: false}))
 app.use(express.json())
 
