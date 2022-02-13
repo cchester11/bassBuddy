@@ -28,14 +28,14 @@
           <form>
             <div class="row justify-content-start">
               <div class="col-5">
-                <label for="catchTitle">Title</label>
-                <input id="catchTitle" placeholder="Title" name="catchTitle" type="text" class="form-control"/>
+                <label for="catch_title">Title</label>
+                <input id="catch_title" placeholder="Title" name="catch_title" type="text" class="form-control"/>
               </div>
             </div>
             <div class="row justify-content-start">
               <div class="col-5">
-                <label for="catchType">Type of Fish</label>
-                <input id="catchType" placeholder="Type of Fish" name="catchType" type="text" class="form-control"/>
+                <label for="catch_type">Type of Fish</label>
+                <input id="catch_type" placeholder="Type of Fish" name="catch_type" type="text" class="form-control"/>
               </div>
             </div>
             <div class="row justify-content-start">
@@ -46,12 +46,21 @@
             </div>
             <div class="row justify-content-start">
               <div class="col-5">
-                <label for="catchDescription">Describe Catch Conditions</label>
-                <textarea id="catchDescription" name="catchDescription" placeholder="Description" rows="4" cols="50"></textarea>
+              <label for="catch_description">Describe Catch Conditions</label>
+                <textarea id="catch_description" name="catch_description" placeholder="Description" rows="4" cols="50"></textarea>
               </div>
             </div>
           </form>
         </div>
+      </div>
+    <div
+      class="d-flex justify-content-center align-items-center m-5"
+      id="searchBtnDiv"
+    >
+      <button type="submit" class="btn btn-info mt-5" id="searchBtn">
+        Search
+      </button>
+    </div>
     <footer id="footer" class="d-flex justify-content-start align-items-center">
       <div class="container row cols">
         <p><span id="bass">Bass</span><span id="buddy">Buddy</span></p>
@@ -59,4 +68,6 @@
       </div>
     </footer>
   </body>
+
+  <script src="./javascript/createCatch.js"></script>
 </html>

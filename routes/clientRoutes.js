@@ -10,7 +10,7 @@ router.get('/data', (req, res) => {
       res.sendFile(path.join(__dirname, '../public/data.html'))
 })
 router.get('/catchlog', (req, res) => {
-      res.sendFile(path.join(__dirname, '../public/catchLog.html'))
+      res.sendFile(path.join(__dirname, '../public/createCatch.html'))
 })
 
 module.exports = router
