@@ -19,6 +19,8 @@ router.get('/catchlog', (req, res) => {
 })
 
 router.post('/createcatch', (req, res) => {
+      console.log('made it to the route')
+
       const sql = "INSERT INTO catchlog (catch_title, catch_type, season, catch_description) VALUES (?,?,?,?)"
 
       const params = [
@@ -29,14 +31,15 @@ router.post('/createcatch', (req, res) => {
       ]
 
       // inject our sql query, our parameters placed into values slot and a call back to return answers json format
-      connection.query(sql, params, (err, results) => {
+      connection.query(sql, params, (err, rows) => {
+            console.log('made it to the query')
             if(err) {
                   res.status(500).json({error: err.message})
             } else {
                   res.json({
                         message: 'success',
                         data: body,
-                        changes: results.affectedRows
+                        changes: rows.affectedRows
                   })
             }
       })

@@ -9,7 +9,7 @@ const createCatch = (event) => {
       const catch_description = document.querySelector('#catch_description').value
 
       console.log(catch_title, catch_type, season, catch_description)
-      
+
       fetch('/api/createcatch', {
             method: "POST",
             body: JSON.stringify({
@@ -20,7 +20,7 @@ const createCatch = (event) => {
             })
       })
       .then(results => {
-            res.json(results)
+            return results.json()
       })
       .catch(err => {
             throw new Error(err)
