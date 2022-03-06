@@ -10,6 +10,7 @@ router.get('/catchlog', (req, res) => {
             if(err) {
                   res.status(500).json({ error: err.message})
             } else {
+                  console.log({data: rows})
                   res.json({
                         message: 'successful route',
                         data: rows
