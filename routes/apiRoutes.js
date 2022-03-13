@@ -1,8 +1,8 @@
 const router = require('express').Router()
 const connection = require('../config/connection')
 
-router.get('/catchlog', (req, res) => {
-      const sql = 'SELECT * FROM catchlog'
+router.get('/getallcatches', (req, res) => {
+      const sql = 'SELECT * FROM catchlog;'
 
       // make a sql query. the query method accepts a query and a callback function
       // parameters like err and rows do not need data to be passed in
@@ -39,8 +39,7 @@ router.post('/createcatch', (req, res) => {
             } else {
                   res.json({
                         message: 'success',
-                        data: body,
-                        changes: rows.affectedRows
+                        data: rows.affectedRows
                   })
             }
       })
