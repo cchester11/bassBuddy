@@ -8,8 +8,6 @@ const createCatch = (event) => {
       const season = document.querySelector('#season').value
       const catch_description = document.querySelector('#catch_description').value
 
-      console.log(catch_title, catch_type, season, catch_description)
-
       fetch('/api/createcatch', {
             method: "POST",
             body: JSON.stringify({
@@ -25,6 +23,11 @@ const createCatch = (event) => {
       .catch(err => {
             throw new Error(err)
       })
+
+      catch_title.textContent = '',
+      catch_type.textContent = '',
+      season.textContent = '',
+      catch_description.textContent = ''
 }
 
 searchBtn.addEventListener('click', createCatch)
