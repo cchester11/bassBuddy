@@ -8,10 +8,10 @@ router.get('/getallcatches', (req, res) => {
       // make a sql query. the query method accepts a query and a callback function
       // parameters like err and rows do not need data to be passed in
       connection.query(sql, (err, rows) => {
-            if(err) {
-                  res.status(500).json({ error: err.message})
+            if (err) {
+                  res.status(500).json({ error: err.message })
             } else {
-                  console.log({data: rows})
+                  console.log({ data: rows })
                   res.json({
                         message: 'successful route',
                         data: rows
@@ -38,17 +38,13 @@ router.post('/createcatch', (req, res) => {
       console.log(params + ' server side params log')
 
       // inject our sql query, our parameters placed into values slot and a call back to return answers json format
-      connection.query(sql, params, (err, rows, results) => {
+      connection.query(sql, params, (rows) => {
             console.log('made it to the query')
-            if(err) {
-                  res.status(500).json({error: err.message})
-            } else {
-                  res.json({
-                        message: 'success',
-                        data: rows
-                  })
-            }
+            res.json({
+                  message: 'success',
+                  data: rows
+            })
       })
-})    
+})
 
 module.exports = router

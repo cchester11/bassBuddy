@@ -32,8 +32,10 @@ async function createCatch (event) {
             // route works until this point. the response does not return as "ok"
             if(response.ok) {
                   console.log(response + ' client side')
+                  document.location.reload()
             } else {
-                  alert(response.statusText)
+                  document.location.reload()
+                  console.log('dont forget about the errors')
             }
       }
 }
