@@ -1,6 +1,7 @@
 const router = require('express').Router()
 const connection = require('../config/connection')
 
+// successful route
 router.get('/getallcatches', (req, res) => {
       const sql = 'SELECT * FROM catchlog;'
 
