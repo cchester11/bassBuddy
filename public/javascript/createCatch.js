@@ -29,6 +29,7 @@ async function createCatch (event) {
                         throw new Error(err)
                   })
 
+            // route works until this point. the response does not return as "ok"
             if(response.ok) {
                   console.log(response + ' client side')
             } else {
