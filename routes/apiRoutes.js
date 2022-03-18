@@ -19,18 +19,22 @@ router.get('/getallcatches', (req, res) => {
       })
 })
 
+// the fetch request successfully reaches the route. there is something wrong with the inner workings of the route
+// query route works but still sends an error message back
 router.post('/createcatch', (req, res) => {
       console.log('made it to the route')
 
-      const sql = "INSERT INTO catchlog (catch_title, catch_type, season, catch_description) VALUES (?,?,?,?)"
+      // query looks like it uses correct sql syntax
+      const sql = "INSERT INTO catchlog (catch_title, catch_type, season, catch_description) VALUES (?,?,?,?);"
 
+      // params successfully sent when running the fetch request in an async function 
       const params = [
             req.body.catch_title,
             req.body.catch_type,
             req.body.season,
             req.body.catch_description
       ]
-      console.log(params)
+      console.log(params + ' server side params log')
 
       // inject our sql query, our parameters placed into values slot and a call back to return answers json format
       connection.query(sql, params, (err, rows, results) => {
