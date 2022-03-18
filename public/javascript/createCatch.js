@@ -30,10 +30,6 @@ async function createCatch (event) {
                   })
 
             if(response.ok) {
-                  catch_title.value = '',
-                  catch_type.value= '',
-                  season.value= '',
-                  catch_description.value= ''
                   console.log(response + ' client side')
             } else {
                   alert(response.statusText)
