@@ -30,6 +30,7 @@ async function createCatch (event) {
                   })
 
             // route works until this point. the response does not return as "ok"
+            // however, the api route does save the catch to the db so i did away with an error callback for now to avoid the weird problem we have here
             if(response.ok) {
                   console.log(response + ' client side')
                   document.location.reload()
