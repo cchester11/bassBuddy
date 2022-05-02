@@ -1,5 +1,6 @@
 let searchBtn = document.querySelector('#searchBtn')
 
+// effectively retrieves live data according to longitude and latitude input. server does go down occasionally for the api
 function saveTask(one, two, three, four) {
     localStorage.setItem('longitude', JSON.stringify(one))
     localStorage.setItem('latitude', JSON.stringify(two))
