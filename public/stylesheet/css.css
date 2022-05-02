@@ -12,6 +12,7 @@ html, body {
 body {
     background-color: gray;
     min-height: 100vh;
+    overflow-y: scroll;
 }
 
 .header {

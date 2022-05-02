@@ -35,11 +35,11 @@ router.post('/createcatch', (req, res) => {
             req.body.season,
             req.body.catch_description
       ]
-      console.log(params + ' server side params log')
+      console.log(params + ' --- server side params log')
 
       // inject our sql query, our parameters placed into values slot and a call back to return answers json format
       connection.query(sql, params, (rows) => {
-            console.log('made it to the query')
+            console.log('made it to the query. Successful post of catch. Congratulations!')
             res.json({
                   message: 'success',
                   data: rows
