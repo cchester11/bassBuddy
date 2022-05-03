@@ -8,6 +8,7 @@ async function renderAllCatches () {
       })
             .then(results => {
                   console.log(results)
+
             })
             .catch(err => {
                   if(err) {
