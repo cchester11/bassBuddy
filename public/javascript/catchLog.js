@@ -6,10 +6,8 @@ async function renderAllCatches () {
             method: "GET",
             headers: ({ 'Content-Type': 'application/json'})
       })
-            .then(results => {
-                  console.log(results)
-
-            })
+            .then(response => response.json())
+            .then(data => console.log(data.rows))
             .catch(err => {
                   if(err) {
                         throw new Error(err)

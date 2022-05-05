@@ -13,8 +13,7 @@ router.get('/getallcatches', (req, res) => {
             } else {
                   // console.log({ data: rows })
                   res.json({
-                        message: 'successful route',
-                        data: rows
+                        rows: rows
                   })
             }
       })
