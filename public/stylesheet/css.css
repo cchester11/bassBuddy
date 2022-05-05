@@ -11,8 +11,14 @@ html, body {
 
 body {
     background-color: gray;
+    background-image: url('../images/heroImgFishing.jpeg');
+    background-size: cover;
+    background-attachment: fixed;
     min-height: 100vh;
     overflow-y: scroll;
+    text-shadow: 10px;
+    color: white;
+
 }
 
 .header {
@@ -27,7 +33,12 @@ nav{
 
 label {
     font-weight: lighter;
-    color: black;
+    color: white;
+}
+
+section {
+    background-color: black;
+    opacity: 0.5;
 }
 
 #bass {
