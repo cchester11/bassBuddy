@@ -12,7 +12,7 @@ async function renderAllCatches () {
                   
                   for(let i = 0; i < fish.length; i ++) {
                         console.log(fish[i])
-
+                        // create cards for each catch (see dataReader for specs)
                         const catchDiv = document.createElement('div')
 
                         let title = document.createElement('h5')

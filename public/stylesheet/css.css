@@ -42,6 +42,10 @@ section {
     opacity: 0.5;
 }
 
+.searchResults0, .searchResults1, .searchResults2 {
+    display: none;
+}
+
 #bass {
     color: yellow;
     font-weight: bolder;

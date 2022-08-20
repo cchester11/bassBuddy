@@ -1,5 +1,7 @@
 let searchBtn = document.querySelector('#searchBtn')
-
+let searchResults0 = document.querySelector(".searchResults0")
+let searchResults1 = document.querySelector(".searchResults1")
+let searchResults2 = document.querySelector(".searchResults2")
 // effectively retrieves live data according to longitude and latitude input. server does go down occasionally for the api
 function saveTask(one, two, three, four) {
     localStorage.setItem('longitude', JSON.stringify(one))
@@ -19,6 +21,9 @@ const fetchUrl = (event) => {
             return results.json()
         })
         .then(data => {
+            searchResults0.setAttribute('style', 'display: flex')
+            searchResults1.setAttribute('style', 'display: flex')
+            searchResults2.setAttribute('style', 'display: flex')
             console.log(data)
 
             saveTask(longitude.value, latitude.value, date.value, tz.value);
