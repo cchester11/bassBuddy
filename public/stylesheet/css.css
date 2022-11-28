@@ -1,3 +1,9 @@
+:root {
+    --primary-color: salmon;
+    --secondary-color: white;
+    --tertiary-color: #39a6b2;
+}
+
 html {
     overflow: hidden;
     position: relative;
@@ -10,15 +16,15 @@ html, body {
 }
 
 body {
-    background-color: gray;
-    background-image: url('../images/heroImgFishing.jpeg');
+    background-color: var(--primary-color);
+    /* background-image: url('../images/heroImgFishing.jpeg'); */
     background-size: cover;
     background-attachment: fixed;
     min-height: 100vh;
+    overflow-y: hidden;
     overflow-y: scroll;
     text-shadow: 10px;
-    color: white;
-    overflow-y: scroll;
+    color: var(--secondary-color);
 }
 
 .header {
@@ -29,7 +35,7 @@ body {
 
 nav{
     background-color: skyblue;
-    color: black;
+    color: var(--secondary-color);
 }
 
 label {
@@ -38,7 +44,7 @@ label {
 }
 
 section {
-    background-color: black;
+    background-color: var(--tertiary-color);
     opacity: 0.5;
 }
 
@@ -57,7 +63,7 @@ section {
 }
 
 #footer {
-    background-color: skyblue;
+    background-color: var(--tertiary-color);
     padding: 20px;
     font-weight: bolder;
     position: absolute;
