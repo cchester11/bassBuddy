@@ -52,6 +52,10 @@ section {
     position: absolute;
 }
 
+.create-catch-form {
+    width: 40%;
+}
+
 .searchResults0, .searchResults1, .searchResults2 {
     display: none;
 }

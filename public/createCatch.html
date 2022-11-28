@@ -21,42 +21,46 @@
       <h6 class="header">An anglers assistant using Solunar API</h6>
       <br />
     </nav>
-    <br>
-      <div class="container-fluid d-flex align-items-start m-5">
-        <div class="col cols-2">
-          <form>
-            <div class="row justify-content-start">
-              <div class="col-5">
-                <label for="catch_title">Title</label>
-                <input id="catch_title" placeholder="Title" name="catch_title" type="text" class="form-control"/>
-              </div>
-            </div>
-            <div class="row justify-content-start">
-              <div class="col-5">
-                <label for="catch_type">Type of Fish</label>
-                <input id="catch_type" placeholder="Type of Fish" name="catch_type" type="text" class="form-control"/>
-              </div>
-            </div>
-            <div class="row justify-content-start">
-              <div class="col-5">
-                <label for="season">Season</label>
-                <input id="season" name="season" placeholder="Season of the Year" type="text" class="form-control"/>
-              </div>
-            </div>
-            <!-- adjust so lines up with other elements -->
-            <div class="row justify-content-start">
-              <div class="col-5">
-              <label for="catch_description">Conditions</label>
-                <textarea id="catch_description" name="catch_description" placeholder="Description" rows="4" cols="50"></textarea>
-              </div>
-            </div>
-          </form>
-        </div>
+    <br />
+    <div class="container-fluid m-5 create-catch-form">
+      <div class="mb-3">
+        <label for="title" class="form-label">Title</label>
+        <input
+          type="text"
+          class="form-control"
+          id="title"
+          placeholder="Give your catch a title"
+        />
       </div>
-    <div
-      class="d-flex justify-content-center align-items-center m-5"
-      id="searchBtnDiv"
-    >
+      <div class="mb-3">
+        <label for="species" class="form-label">Species</label>
+        <input
+          type="text"
+          class="form-control"
+          id="species"
+          placeholder="What species did you catch?"
+        />
+      </div>
+      <div class="mb-3">
+        <label for="season" class="form-label">Season</label>
+        <input
+          type="text"
+          class="form-control"
+          id="season"
+          placeholder="What season was it?"
+        />
+      </div>
+      <div class="mb-3">
+        <label for="conditions" class="form-label"
+          >Conditions</label
+        >
+        <textarea
+          class="form-control"
+          id="conditions"
+          rows="3"
+          placeholder="Under what conditions did you catch your fish? Describe the time, depth, equipment, barometric pressure, etc"
+        ></textarea>
+      </div>
       <button type="submit" class="btn btn-info mt-5" id="searchBtn">
         Submit
       </button>

@@ -5,10 +5,10 @@ async function createCatch (event) {
       event.preventDefault()
 
       // values are successfully extracted using below variables
-      const catch_title = document.querySelector('#catch_title').value
-      const catch_type = document.querySelector('#catch_type').value
+      const catch_title = document.querySelector('#title').value
+      const catch_type = document.querySelector('#species').value
       const season = document.querySelector('#season').value
-      const catch_description = document.querySelector('#catch_description').value
+      const catch_description = document.querySelector('#conditions').value
 
       if(catch_title, catch_type, season, catch_description) {
             const response = await fetch('/api/createcatch', {
