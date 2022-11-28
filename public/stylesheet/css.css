@@ -72,7 +72,6 @@ section {
 
 #footer {
     background-color: var(--tertiary-color);
-    padding: 20px;
     font-weight: bolder;
     position: absolute;
     left: 0;
