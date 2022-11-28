@@ -47,6 +47,13 @@ section {
     position: relative;
 }
 
+.catch-cols {
+    border: 2mm;
+    border-color: var(--secondary-color);
+    border-style: solid;
+    border-radius: 10%;
+}
+
 .pagination-nav {
     background-color: var(--primary-color);
     position: absolute;

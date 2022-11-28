@@ -23,7 +23,7 @@ async function renderAllCatches() {
                         season.textContent = fish[i].season
                         let description = document.createElement('ul')
                         description.textContent = fish[i].catch_description
-                        colDiv.setAttribute('class', 'col p-3')
+                        colDiv.setAttribute('class', 'col p-3 catch-cols')
 
                         colDiv.appendChild(title)
                         colDiv.appendChild(species)
