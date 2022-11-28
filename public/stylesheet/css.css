@@ -47,6 +47,13 @@ section {
     position: relative;
 }
 
+.pagination-nav {
+    background-color: var(--primary-color);
+    margin-bottom: 0;
+    margin-right: 50%;
+    margin-left: 50%;
+}
+
 .searchResults0, .searchResults1, .searchResults2 {
     display: none;
 }
