@@ -48,10 +48,10 @@ section {
 }
 
 .catch-cols {
-    border: 2mm;
+    border: 0.5mm;
     border-color: var(--secondary-color);
     border-style: solid;
-    border-radius: 10%;
+    border-radius: 2%;
 }
 
 .pagination-nav {
