@@ -13,6 +13,7 @@ async function renderAllCatches () {
                   for(let i = 0; i < fish.length; i ++) {
                         console.log(fish[i])
                         // create cards for each catch (see dataReader for specs)
+                        const card = document.createElement('div')
                         const catchDiv = document.createElement('div')
 
                         let title = document.createElement('h5')
@@ -24,7 +25,14 @@ async function renderAllCatches () {
                         let description = document.createElement('ul')
                         description.textContent = fish[i].catch_description
 
-                        catchDiv.setAttribute('style', "d-flex justify-content-center align-items-start m-5")
+                        card.setAttribute('class', 'card')
+                        catchDiv.setAttribute('class', "card-body ")
+                        title.setAttribute('class', 'card-title')
+                        species.setAttribute('class', 'card-text')
+                        season.setAttribute('class', 'card-text')
+                        description.setAttribute('class', 'card-text')
+                        
+                        card.appendChild(catchDiv)
                         catchDiv.appendChild(title)
                         catchDiv.appendChild(species)
                         catchDiv.appendChild(season)
