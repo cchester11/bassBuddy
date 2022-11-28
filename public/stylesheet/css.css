@@ -19,7 +19,7 @@ body {
     background-color: var(--primary-color);
     /* background-image: url('../images/heroImgFishing.jpeg'); */
     background-size: cover;
-    background-attachment: fixed;
+    /* background-attachment: fixed; */
     min-height: 100vh;
     overflow-y: hidden;
     overflow-y: scroll;
@@ -49,9 +49,7 @@ section {
 
 .pagination-nav {
     background-color: var(--primary-color);
-    margin-bottom: 0;
-    margin-right: 50%;
-    margin-left: 50%;
+    position: absolute;
 }
 
 .searchResults0, .searchResults1, .searchResults2 {
