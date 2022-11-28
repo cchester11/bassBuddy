@@ -23,12 +23,18 @@ async function renderAllCatches() {
                         season.textContent = fish[i].season
                         let description = document.createElement('ul')
                         description.textContent = fish[i].catch_description
+                        let deleteBtn = document.createElement('button')
+                        deleteBtn.textContent = 'delete catch'
+
                         colDiv.setAttribute('class', 'col p-3 catch-cols')
+                        deleteBtn.setAttribute('class', 'btn catch-log-delete-btn')
+                        deleteBtn.setAttribute('id', `${fish[i].id}`)
 
                         colDiv.appendChild(title)
                         colDiv.appendChild(species)
                         colDiv.appendChild(season)
                         colDiv.appendChild(description)
+                        colDiv.appendChild(deleteBtn)
                         betaDiv.appendChild(colDiv)
                         catchLogDiv.appendChild(betaDiv)
                   }
@@ -41,3 +47,4 @@ async function renderAllCatches() {
 }
 
 renderAllCatches()
+
