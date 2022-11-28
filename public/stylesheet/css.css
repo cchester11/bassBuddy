@@ -34,18 +34,17 @@ body {
 }
 
 nav{
-    background-color: skyblue;
+    background-color: var(--tertiary-color);
     color: var(--secondary-color);
 }
 
 label {
     font-weight: lighter;
-    color: white;
+    color: var(--secondary-color);
 }
 
 section {
-    background-color: var(--tertiary-color);
-    opacity: 0.5;
+    position: relative;
 }
 
 .searchResults0, .searchResults1, .searchResults2 {
