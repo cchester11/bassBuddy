@@ -9,6 +9,15 @@ router.get('/', (req, res) => {
 router.get('/summer', (req, res) => {
       res.sendFile(path.join(__dirname, '../public/summer.html'))
 })
+router.get('/winter', (req, res) => {
+      res.sendFile(path.join(__dirname, '../public/winter.html'))
+})
+router.get('/fall', (req, res) => {
+      res.sendFile(path.join(__dirname, '../public/fall.html'))
+})
+router.get('/spring', (req, res) => {
+      res.sendFile(path.join(__dirname, '../public/spring.html'))
+})
 router.get('/createcatch', (req, res) => {
       res.sendFile(path.join(__dirname, '../public/createCatch.html'))
 })
