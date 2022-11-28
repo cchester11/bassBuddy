@@ -6,8 +6,8 @@ const path = require('path')
 router.get('/', (req, res) => {
       res.sendFile(path.join(__dirname, '../public/index.html'))
 })
-router.get('/data', (req, res) => {
-      res.sendFile(path.join(__dirname, '../public/data.html'))
+router.get('/summer', (req, res) => {
+      res.sendFile(path.join(__dirname, '../public/summer.html'))
 })
 router.get('/createcatch', (req, res) => {
       res.sendFile(path.join(__dirname, '../public/createCatch.html'))
