@@ -26,8 +26,8 @@ async function renderAllCatches() {
                         let deleteBtn = document.createElement('button')
                         deleteBtn.textContent = 'delete catch'
 
-                        colDiv.setAttribute('class', 'col p-3 catch-cols')
-                        deleteBtn.setAttribute('class', 'btn catch-log-delete-btn')
+                        colDiv.setAttribute('class', 'col p-3 catch-cols card bg-info')
+                        deleteBtn.setAttribute('class', 'btn btn-light catch-log-delete-btn')
                         deleteBtn.setAttribute('id', `${fish[i].id}`)
 
                         colDiv.appendChild(title)
@@ -47,4 +47,24 @@ async function renderAllCatches() {
 }
 
 renderAllCatches()
+
+betaDiv.addEventListener('click', async (event) => {
+      event.preventDefault()
+
+      let id = event.target.id
+
+      const response = await fetch('/api/deletecatch', {
+            method: 'delete',
+            body: JSON.stringify({
+                  id: id
+            }),
+            headers: { 'Content-Type': 'application/json'}
+      })
+
+      if(response.ok) {
+            document.location.reload()
+      } else {
+            window.alert("We're having issues deleting your catch")
+      }
+})
 

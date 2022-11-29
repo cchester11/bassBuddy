@@ -46,4 +46,17 @@ router.post('/createcatch', (req, res) => {
       })
 })
 
+router.delete('/deletecatch', (req, res) => {
+      // write our sql native query
+      const id = req.body.id;
+      const sql = `DELETE FROM catchlog WHERE id = '${id}'`
+
+      connection.query(sql, (rows) => {
+            res.json({
+                  message: 'success',
+                  data: rows
+            })
+      })
+})
+
 module.exports = router
