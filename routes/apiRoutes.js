@@ -3,7 +3,7 @@ const connection = require('../config/connection')
 
 // successful route
 router.get('/getallcatches', (req, res) => {
-      const sql = 'SELECT * FROM catchlog;'
+      const sql = 'SELECT * FROM catchLog;'
 
       // make a sql query. the query method accepts a query and a callback function
       // parameters like err and rows do not need data to be passed in
@@ -25,7 +25,7 @@ router.post('/createcatch', (req, res) => {
       console.log('made it to the route')
 
       // query looks like it uses correct sql syntax
-      const sql = "INSERT INTO catchlog (catch_title, catch_type, season, catch_description) VALUES (?,?,?,?);"
+      const sql = "INSERT INTO catchLog (catch_title, catch_type, season, catch_description) VALUES (?,?,?,?);"
 
       // params successfully sent when running the fetch request in an async function 
       const params = [
@@ -46,10 +46,24 @@ router.post('/createcatch', (req, res) => {
       })
 })
 
+router.put('/favorite', (req, res) => {
+      const id = req.body.id
+      const favorite = req.body.favorite
+
+      const sql = `UPDATE catchLog SET favorite = ${favorite} WHERE id = ${id}`
+
+      connection.query(sql, rows => {
+            res.json({
+                  message: 'success',
+                  data: rows
+            })
+      })
+})
+
 router.delete('/deletecatch', (req, res) => {
       // write our sql native query
       const id = req.body.id;
-      const sql = `DELETE FROM catchlog WHERE id = '${id}'`
+      const sql = `DELETE FROM catchLog WHERE id = '${id}'`
 
       connection.query(sql, (rows) => {
             res.json({
