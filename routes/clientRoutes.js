@@ -24,6 +24,9 @@ router.get('/createcatch', (req, res) => {
 router.get('/catchlog', (req, res) => {
       res.sendFile(path.join(__dirname, '../public/catchLog.html'))
 })
+router.get('/favorites', (req, res) => {
+      res.sendFile(path.join(__dirname, '../public/favorites.html'))
+})
 
 module.exports = router
 
