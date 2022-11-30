@@ -38,6 +38,10 @@ nav{
     color: var(--secondary-color);
 }
 
+a {
+    color: var(--secondary-color)
+}
+
 label {
     font-weight: lighter;
     color: var(--secondary-color);
