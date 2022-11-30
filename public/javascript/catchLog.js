@@ -30,10 +30,8 @@ async function renderAllCatches() {
 
                         colDiv.setAttribute('class', 'col p-3 catch-cols card bg-info')
                         deleteBtn.setAttribute('class', 'btn btn-danger catch-log-delete-btn')
-                        deleteBtn.setAttribute('type', 'button')
                         deleteBtn.setAttribute('id', `${fish[i].id}`)
                         favoriteBtn.setAttribute('class', 'btn btn-primary m-2')
-                        favoriteBtn.setAttribute('type', 'button')
                         favoriteBtn.setAttribute('id', `${fish[i].id}`)
 
                         colDiv.appendChild(title)
