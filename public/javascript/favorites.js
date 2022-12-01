@@ -16,13 +16,15 @@ async function getAllFavorites() {
                         const colDiv = document.createElement('div')
 
                         let title = document.createElement('h5')
-                        title.textContent = favorites[i].catch_title
+                        title.textContent = favorites[i].catch_location
                         let species = document.createElement('ul')
-                        species.textContent = favorites[i].catch_type
+                        species.textContent = favorites[i].catch_species
                         let season = document.createElement('ul')
                         season.textContent = favorites[i].season
                         let description = document.createElement('ul')
                         description.textContent = favorites[i].catch_description
+                        let date = document.createElement('ul')
+                        date.textContent = favorites[i].catch_date
                         let deleteBtn = document.createElement('button')
                         deleteBtn.textContent = 'Delete Catch'
                         let unfavoriteBtn = document.createElement('button')
@@ -38,6 +40,7 @@ async function getAllFavorites() {
                         colDiv.appendChild(species)
                         colDiv.appendChild(season)
                         colDiv.appendChild(description)
+                        colDiv.appendChild(date)
                         colDiv.appendChild(unfavoriteBtn)
                         colDiv.appendChild(deleteBtn)
                         betaDiv.appendChild(colDiv)
