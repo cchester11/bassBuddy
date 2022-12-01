@@ -19,6 +19,20 @@ router.get('/getallcatches', (req, res) => {
       })
 })
 
+router.get('/favorites', (req, res) => {
+      const sql = 'SELECT * FROM catchLog WHERE favorite = 1;'
+
+      connection.query(sql, (err, rows) => {
+            if(err) {
+                  res.status(500).json({ error: err.message })
+            } else {
+                  res.json({
+                        rows: rows
+                  })
+            }
+      })
+})
+
 // the fetch request successfully reaches the route. there is something wrong with the inner workings of the route
 // query route works but still sends an error message back
 router.post('/createcatch', (req, res) => {
