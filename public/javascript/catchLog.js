@@ -16,13 +16,15 @@ async function renderAllCatches() {
                         const colDiv = document.createElement('div')
 
                         let title = document.createElement('h5')
-                        title.textContent = fish[i].catch_title
+                        title.textContent = fish[i].catch_location
                         let species = document.createElement('ul')
-                        species.textContent = fish[i].catch_type
+                        species.textContent = fish[i].catch_species
                         let season = document.createElement('ul')
                         season.textContent = fish[i].season
                         let description = document.createElement('ul')
                         description.textContent = fish[i].catch_description
+                        let date = document.createElement('ul')
+                        date.textContent = fish[i].catch_date
                         let deleteBtn = document.createElement('button')
                         deleteBtn.textContent = 'Delete Catch'
                         let favoriteBtn = document.createElement('button')
@@ -38,6 +40,7 @@ async function renderAllCatches() {
                         colDiv.appendChild(species)
                         colDiv.appendChild(season)
                         colDiv.appendChild(description)
+                        colDiv.appendChild(date)
                         colDiv.appendChild(favoriteBtn)
                         colDiv.appendChild(deleteBtn)
                         betaDiv.appendChild(colDiv)
