@@ -23,7 +23,7 @@ router.get('/favorites', (req, res) => {
       const sql = 'SELECT * FROM catchLog WHERE favorite = 1;'
 
       connection.query(sql, (err, rows) => {
-            if(err) {
+            if (err) {
                   res.status(500).json({ error: err.message })
             } else {
                   res.json({
@@ -39,24 +39,29 @@ router.post('/createcatch', (req, res) => {
       console.log('made it to the route')
 
       // query looks like it uses correct sql syntax
-      const sql = "INSERT INTO catchLog (catch_title, catch_type, season, catch_description) VALUES (?,?,?,?);"
+      const sql = "INSERT INTO catchLog (catch_location, catch_species, season, catch_description, catch_date) VALUES (?,?,?,?,?);"
 
       // params successfully sent when running the fetch request in an async function 
       const params = [
-            req.body.catch_title,
-            req.body.catch_type,
+            req.body.catch_location,
+            req.body.catch_species,
             req.body.season,
-            req.body.catch_description
+            req.body.catch_description,
+            req.body.catch_date
       ]
       console.log(params + ' --- server side params log')
 
       // inject our sql query, our parameters placed into values slot and a call back to return answers json format
-      connection.query(sql, params, (rows) => {
-            console.log('made it to the query. Successful post of catch. Congratulations!')
-            res.json({
-                  message: 'success',
-                  data: rows
-            })
+      connection.query(sql, params, (err, rows) => {
+            if (err) {
+                  res.status(500).json({ error: err.message })
+            } else {
+                  console.log('made it to the query. Successful post of catch. Congratulations!')
+                  res.json({
+                        message: 'success',
+                        data: rows
+                  })
+            }
       })
 })
 

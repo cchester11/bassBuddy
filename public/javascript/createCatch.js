@@ -5,20 +5,22 @@ async function createCatch (event) {
       event.preventDefault()
 
       // values are successfully extracted using below variables
-      const catch_title = document.querySelector('#title').value
-      const catch_type = document.querySelector('#species').value
+      const catch_location = document.querySelector('#location').value
+      const catch_species = document.querySelector('#species').value
       const season = document.querySelector('#season').value
       const catch_description = document.querySelector('#conditions').value
+      const catch_date = document.querySelector('#date').value
 
-      if(catch_title, catch_type, season, catch_description) {
+      if(catch_location, catch_species, season, catch_description, catch_date) {
             const response = await fetch('/api/createcatch', {
                   method: "POST",
                   // body successfully sent to api POST route
                   body: JSON.stringify({
-                        catch_title,
-                        catch_type,
+                        catch_location,
+                        catch_species,
                         season,
-                        catch_description
+                        catch_description,
+                        catch_date
                   }),
                   headers: ({ 'Content-Type': 'application/json' })
             })
