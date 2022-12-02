@@ -14,7 +14,6 @@ async function renderAllCatches() {
                         console.log(fish[i])
                         // create cards for each catch (see dataReader for specs)
                         const colDiv = document.createElement('div')
-
                         let title = document.createElement('h5')
                         title.textContent = fish[i].catch_location
                         let species = document.createElement('ul')
@@ -35,6 +34,19 @@ async function renderAllCatches() {
                         deleteBtn.setAttribute('id', `${fish[i].id}`)
                         favoriteBtn.setAttribute('class', 'btn btn-primary m-2')
                         favoriteBtn.setAttribute('id', `${fish[i].id}`)
+
+                        if(fish[i].catch_image == null) {
+                              let add_image_button = document.createElement('button')
+                              add_image_button.textContent = 'Add Image'
+                              add_image_button.setAttribute('class', 'btn btn-primary')
+                              colDiv.appendChild(add_image_button)
+                        } 
+                        if(fish[i].catch_image != null) {
+                              let image_button = document.createElement('button')
+                              image_button.textContent = 'See Image'
+                              image_button.setAttribute('class', 'btn btn-primary')
+                              colDiv.appendChild(image_button)
+                        }
 
                         colDiv.appendChild(title)
                         colDiv.appendChild(species)
@@ -97,4 +109,3 @@ betaDiv.addEventListener('click', async (event) => {
             }
       }
 });
-
