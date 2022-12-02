@@ -23,6 +23,15 @@
     </nav>
     <h5 class="header">Users Catch Log</h5>
     <button type="button" class="btn btn-pill btn-primary" id="send-to-favorites-page-btn"><a href="/favorites">Favorites</a></button>
+    <div class="m-5 add-image-modal">
+      <label for="location" class="form-label">Add An Image</label>
+      <input
+        type="file"
+        class="form-control"
+        id="add-image-input"
+      />
+      <input type="submit" />
+    </div>
     <div class="container m-5" id="catchLogDiv">
       <div class="row row-cols-2" id="betaDiv">
         <!-- catches listed here -->
@@ -36,6 +45,8 @@
         <p>Made By Charles</p>
       </div>
     </footer>
+
+    
   </body>
 
   <script src="./javascript/catchLog.js"></script>

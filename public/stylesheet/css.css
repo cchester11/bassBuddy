@@ -67,6 +67,11 @@ section {
     width: 40%;
 }
 
+.add-image-modal {
+    display: none;
+    width: 30%;
+}
+
 .searchResults0, .searchResults1, .searchResults2 {
     display: none;
 }

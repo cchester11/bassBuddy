@@ -1,5 +1,6 @@
 const catchLogDiv = document.getElementById('catchLogDiv')
 const betaDiv = document.getElementById('betaDiv')
+const add_image_modal = document.getElementById('add-image-modal')
 
 async function renderAllCatches() {
       await fetch('/api/getallcatches', {
