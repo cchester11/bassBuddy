@@ -1,6 +1,7 @@
 const catchLogDiv = document.getElementById('catchLogDiv')
 const betaDiv = document.getElementById('betaDiv')
 const add_image_modal = document.getElementById('add-image-modal')
+const add_image_input = document.getElementById('add-image-input')
 
 async function renderAllCatches() {
       await fetch('/api/getallcatches', {
@@ -111,6 +112,10 @@ betaDiv.addEventListener('click', async (event) => {
             }
       } else if(el === 'Add Image') {
             add_image_modal.setAttribute('style', 'display: block')
+
+            if(add_image_input) {
+                  const resposne = await fetch()
+            }
       } else if(el === 'See Image') {
             console.log('see image button clicked')
       }
