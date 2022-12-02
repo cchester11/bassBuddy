@@ -11,7 +11,6 @@ async function renderAllCatches() {
                   let fish = data.rows
 
                   for (let i = 0; i < fish.length; i++) {
-                        console.log(fish[i])
                         // create cards for each catch (see dataReader for specs)
                         const colDiv = document.createElement('div')
                         let title = document.createElement('h5')
@@ -39,12 +38,14 @@ async function renderAllCatches() {
                               let add_image_button = document.createElement('button')
                               add_image_button.textContent = 'Add Image'
                               add_image_button.setAttribute('class', 'btn btn-primary')
+                              add_image_button.setAttribute('id', `${fish[i].id}`)
                               colDiv.appendChild(add_image_button)
                         } 
                         if(fish[i].catch_image != null) {
                               let image_button = document.createElement('button')
                               image_button.textContent = 'See Image'
                               image_button.setAttribute('class', 'btn btn-primary')
+                              image_button.setAttribute('id', `${fish[i].id}`)
                               colDiv.appendChild(image_button)
                         }
 
@@ -107,5 +108,10 @@ betaDiv.addEventListener('click', async (event) => {
                   window.alert('Sorry we encountered a server error')
                   return;
             }
+      } else if(el === 'Add Image') {
+            console.log('add image button clicked')
+            console.log(id)
+      } else if(el === 'See Image') {
+            console.log('see image button clicked')
       }
 });
