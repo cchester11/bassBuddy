@@ -110,8 +110,7 @@ betaDiv.addEventListener('click', async (event) => {
                   return;
             }
       } else if(el === 'Add Image') {
-            console.log('add image button clicked')
-            console.log(id)
+            add_image_modal.setAttribute('style', 'display: block')
       } else if(el === 'See Image') {
             console.log('see image button clicked')
       }

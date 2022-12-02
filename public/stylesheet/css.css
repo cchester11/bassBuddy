@@ -63,13 +63,13 @@ section {
     position: absolute;
 }
 
-.create-catch-form {
-    width: 40%;
-}
-
-.add-image-modal {
+#add-image-modal {
     display: none;
     width: 30%;
+}
+
+.create-catch-form {
+    width: 40%;
 }
 
 .searchResults0, .searchResults1, .searchResults2 {
