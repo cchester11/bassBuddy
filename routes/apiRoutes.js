@@ -33,8 +33,6 @@ router.get('/favorites', (req, res) => {
       })
 })
 
-// the fetch request successfully reaches the route. there is something wrong with the inner workings of the route
-// query route works but still sends an error message back
 router.post('/createcatch', (req, res) => {
       console.log('made it to the route')
 
@@ -76,6 +74,26 @@ router.put('/favorite', (req, res) => {
                   message: 'success',
                   data: rows
             })
+      })
+})
+
+router.put('/addimage', (req, res) => {
+      const id = req.body.id
+      const catch_image = req.body.catch_image
+
+      const sql = `UPDATE catchLog SET catch_image = LOAD_FILE(${catch_image}) WHERE id = ${id}`
+
+      connection.query(sql, (err, rows) => {
+            if(err) {
+                  console.log(err)
+                  res.json({
+                        message: 'server error'
+                  })
+            } else {
+                  res.json({
+                        rows: rows
+                  })
+            }
       })
 })
 

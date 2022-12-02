@@ -2,6 +2,7 @@ const catchLogDiv = document.getElementById('catchLogDiv')
 const betaDiv = document.getElementById('betaDiv')
 const add_image_modal = document.getElementById('add-image-modal')
 const add_image_input = document.getElementById('add-image-input')
+const submit_image_button = document.getElementById('submit-image-button')
 
 async function renderAllCatches() {
       await fetch('/api/getallcatches', {
@@ -112,11 +113,32 @@ betaDiv.addEventListener('click', async (event) => {
             }
       } else if(el === 'Add Image') {
             add_image_modal.setAttribute('style', 'display: block')
-
-            if(add_image_input) {
-                  const resposne = await fetch()
-            }
+            localStorage.setItem('image-id', JSON.stringify(id))
       } else if(el === 'See Image') {
             console.log('see image button clicked')
       }
+});
+
+submit_image_button.addEventListener('click', async (event) => {
+      event.preventDefault()
+
+      let catch_image = add_image_input.value
+      const id = JSON.parse(localStorage.getItem('image-id'))
+      console.log(id)
+      const response = await fetch('/api/addimage', {
+            method: 'put',
+            body: JSON.stringify({
+                  catch_image: catch_image,
+                  id: id
+            }),
+            headers: { 'Content-Type': 'application/json' }
+      })
+
+      if(response.ok) {
+            window.alert("You've successfully posted a picture to your catch!")
+            document.location.reload()
+      } else {
+            window.alert(response.statusText)
+      }
+      add_image_modal.setAttribute('style', 'display: none')
 });
