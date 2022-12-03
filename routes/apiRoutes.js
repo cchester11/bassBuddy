@@ -3,18 +3,21 @@ const connection = require('../config/connection')
 const multer = require('multer')
 
 const storage = multer.diskStorage({
-      destination:  '/uploads',
+      destination: '/uploads',
       filename: function (req, file, cb) {
             const suffix = Math.random(Math.floor * 1E9)
             cb(file.fieldName + '-' + suffix)
       }
 })
 
-const limits = {
-      
+const options = {
+      storage: storage,
+      limits: {
+            fileSize: 4000000
+      }
 }
 
-const upload = multer({})
+const upload = multer(options)
 
 // successful route
 router.get('/getallcatches', (req, res) => {
@@ -99,7 +102,7 @@ router.put('/addimage', (req, res) => {
       const sql = `UPDATE catchLog SET catch_image = LOAD_FILE(${catch_image}) WHERE id = ${id}`
 
       connection.query(sql, (err, rows) => {
-            if(err) {
+            if (err) {
                   console.log(err)
                   res.json({
                         message: 'server error'
