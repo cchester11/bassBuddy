@@ -1,6 +1,19 @@
 const router = require('express').Router()
 const connection = require('../config/connection')
 const multer = require('multer')
+
+const storage = multer.diskStorage({
+      destination:  '/uploads',
+      filename: function (req, file, cb) {
+            const suffix = Math.random(Math.floor * 1E9)
+            cb(file.fieldName + '-' + suffix)
+      }
+})
+
+const limits = {
+      
+}
+
 const upload = multer({})
 
 // successful route
