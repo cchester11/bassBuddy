@@ -1,5 +1,7 @@
 const router = require('express').Router()
 const connection = require('../config/connection')
+const multer = require('multer')
+const upload = multer({})
 
 // successful route
 router.get('/getallcatches', (req, res) => {
