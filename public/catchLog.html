@@ -22,16 +22,24 @@
       <br />
     </nav>
     <h5 class="header">Users Catch Log</h5>
-    <button type="button" class="btn btn-pill btn-primary" id="send-to-favorites-page-btn"><a href="/favorites">Favorites</a></button>
+    <button
+      type="button"
+      class="btn btn-pill btn-primary"
+      id="send-to-favorites-page-btn"
+    >
+      <a href="/favorites">Favorites</a>
+    </button>
     <div class="m-5" id="add-image-modal">
-      <label for="add-image-input" class="form-label">Add An Image</label>
-      <input
-        type="file"
-        class="form-control"
-        name="add-image-input"
-        id="add-image-input"
-      />
-      <input type="submit" id="submit-image-button" />
+      <form method="put" enctype="multipart/form-data" action="/api/addimage">
+        <label for="add-image-input" class="form-label">Add An Image</label>
+        <input
+          type="file"
+          class="form-control"
+          name="add-image-input"
+          id="add-image-input"
+        />
+        <input type="submit" id="submit-image-button" />
+      </form>
     </div>
     <div class="container m-5" id="catchLogDiv">
       <div class="row row-cols-2" id="betaDiv">
@@ -46,8 +54,6 @@
         <p>Made By Charles</p>
       </div>
     </footer>
-
-    
   </body>
 
   <script src="./javascript/catchLog.js"></script>
