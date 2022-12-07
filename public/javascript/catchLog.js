@@ -118,27 +118,3 @@ betaDiv.addEventListener('click', async (event) => {
             console.log('see image button clicked')
       }
 });
-
-submit_image_button.addEventListener('click', async (event) => {
-      event.preventDefault()
-
-      let catch_image = add_image_input.value
-      const id = JSON.parse(localStorage.getItem('image-id'))
-      console.log(id)
-      const response = await fetch('/api/addimage', {
-            method: 'put',
-            body: JSON.stringify({
-                  catch_image: catch_image,
-                  id: id
-            }),
-            headers: { 'Content-Type': 'application/json' }
-      })
-
-      if(response.ok) {
-            window.alert("You've successfully posted a picture to your catch!")
-            document.location.reload()
-      } else {
-            window.alert(response.statusText)
-      }
-      add_image_modal.setAttribute('style', 'display: none')
-});
