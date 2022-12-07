@@ -1,0 +1,5 @@
+I tried all above solution and fail, it just added a null file to the DB.
+
+However, I was able to get it done by moving the image(fileName.jpg) file first in to below folder(in my case) C:\ProgramData\MySQL\MySQL Server 5.7\Uploads and then I executed below command and it works for me,
+
+INSERT INTO xx_BLOB(ID,IMAGE) VALUES(1,LOAD_FILE('C:/ProgramData/MySQL/MySQL Server 5.7/Uploads/fileName.jpg'));
