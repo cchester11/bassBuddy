@@ -14,6 +14,8 @@
   </head>
 
   <body>
+
+    <!-- navbar -->
     <nav class="navbar navbar-expand-lg">
       <h6 class="header"><a href="/">Home</a></h6>
       <h6 class="header"><a href="/summer">Guide</a></h6>
@@ -21,6 +23,8 @@
       <h6 class="header">An anglers assistant using Solunar API</h6>
       <br />
     </nav>
+
+    <!-- body of the page -->
     <h5 class="header">Users Catch Log</h5>
     <button
       type="button"
@@ -29,6 +33,8 @@
     >
       <a href="/favorites">Favorites</a>
     </button>
+
+    <!-- modal pops up on click of 'add image' button -->
     <div class="m-5" id="add-image-modal">
       <form method="post" enctype="multipart/form-data" action="/api/addimage">
         <label for="add-image-input" class="form-label">Add An Image</label>
@@ -41,6 +47,8 @@
         <input type="submit" id="submit-image-button" />
       </form>
     </div>
+
+    <!-- displays all catches -->
     <div class="container m-5" id="catchLogDiv">
       <div class="row row-cols-2" id="betaDiv">
         <!-- catches listed here -->
@@ -48,6 +56,8 @@
     </div>
     <br />
     <br />
+
+    <!-- footer -->
     <footer id="footer" class="d-flex justify-content-start align-items-center">
       <div class="container row cols">
         <p><span id="bass">Bass</span><span id="buddy">Buddy</span></p>

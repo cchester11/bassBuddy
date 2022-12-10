@@ -112,6 +112,7 @@ betaDiv.addEventListener('click', async (event) => {
                   return;
             }
       } else if(el === 'Add Image') {
+            // when the add image button of a catch clicked, the add image form will display itself and the id of the catch will be saved in local storage
             add_image_modal.setAttribute('style', 'display: block')
             localStorage.setItem('image-id', JSON.stringify(id))
       } else if(el === 'See Image') {

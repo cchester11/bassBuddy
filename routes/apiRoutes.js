@@ -1,8 +1,5 @@
 const router = require('express').Router()
 const connection = require('../config/connection')
-const multer = require('multer')
-
-const upload = multer({ dest: '../uploads'})
 
 // successful route
 router.get('/getallcatches', (req, res) => {
@@ -80,7 +77,7 @@ router.put('/favorite', (req, res) => {
       })
 })
 
-router.post('/addimage', upload.single('add-image-input'), (req, res) => {
+router.post('/addimage',  (req, res) => {
       console.log(req.file)
 })
 
