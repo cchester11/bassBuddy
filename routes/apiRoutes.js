@@ -1,6 +1,9 @@
 const router = require('express').Router()
 const connection = require('../config/connection')
 
+const multer = require('multer')
+const upload = multer({ dest: '../uploads'})
+
 // successful route
 router.get('/getallcatches', (req, res) => {
       const sql = 'SELECT * FROM catchLog;'
@@ -77,8 +80,9 @@ router.put('/favorite', (req, res) => {
       })
 })
 
-router.post('/addimage',  (req, res) => {
+router.post('/addimage', upload.single('add-image-input'), (req, res) => {
       console.log(req.file)
+      console.log(req.body)
 })
 
 router.delete('/deletecatch', (req, res) => {
