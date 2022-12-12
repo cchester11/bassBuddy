@@ -40,9 +40,15 @@
         <label for="add-image-input" class="form-label">Add An Image</label>
         <input
           type="file"
+          accept="image/*"
           class="form-control"
           name="add-image-input"
           id="add-image-input"
+        />
+        <input
+          type="hidden"
+          name="image_id"
+          id="image-id"
         />
         <input type="submit" id="submit-image-button" />
       </form>

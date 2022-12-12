@@ -2,7 +2,7 @@ const catchLogDiv = document.getElementById('catchLogDiv')
 const betaDiv = document.getElementById('betaDiv')
 const add_image_modal = document.getElementById('add-image-modal')
 const add_image_input = document.getElementById('add-image-input')
-const submit_image_button = document.getElementById('submit-image-button')
+const input_image_id = document.getElementById('image-id')
 
 async function renderAllCatches() {
       await fetch('/api/getallcatches', {
@@ -112,10 +112,16 @@ betaDiv.addEventListener('click', async (event) => {
                   return;
             }
       } else if(el === 'Add Image') {
-            // when the add image button of a catch clicked, the add image form will display itself and the id of the catch will be saved in local storage
             add_image_modal.setAttribute('style', 'display: block')
-            localStorage.setItem('image-id', JSON.stringify(id))
+            localStorage.setItem('image_id', JSON.stringify(id))
       } else if(el === 'See Image') {
             console.log('see image button clicked')
       }
 });
+
+add_image_input.addEventListener('change', async (event) => {
+      event.preventDefault()
+      const id = await JSON.parse(localStorage.getItem('image_id'))
+      JSON.stringify(id)
+      input_image_id.value = id
+})
