@@ -3,6 +3,7 @@ const betaDiv = document.getElementById('betaDiv')
 const add_image_modal = document.getElementById('add-image-modal')
 const add_image_input = document.getElementById('add-image-input')
 const input_image_id = document.getElementById('image-id')
+const submit_image_button = document.getElementById('submit-image-button')
 
 async function renderAllCatches() {
       await fetch('/api/getallcatches', {
@@ -68,9 +69,9 @@ async function renderAllCatches() {
                         throw new Error(err)
                   }
             })
-}
+};
 
-renderAllCatches()
+renderAllCatches();
 
 betaDiv.addEventListener('click', async (event) => {
       event.preventDefault()
@@ -124,4 +125,29 @@ add_image_input.addEventListener('change', async (event) => {
       const id = await JSON.parse(localStorage.getItem('image_id'))
       JSON.stringify(id)
       input_image_id.value = id
-})
+});
+
+submit_image_button.addEventListener('', async (event) => {
+      event.preventDefault()
+
+      add_image_modal.setAttribute('style', 'display: none')
+      const id = JSON.parse(localStorage.getItem('image-id'))
+      setInterval(await fetch('/api/find_catch_image', {
+            method: 'post',
+            body: JSON.stringify({
+                  id: id
+            }),
+            headers: {'Content-Type': 'application/json'}
+      })
+            .then(results => {
+                  return results.json()
+            })
+            .then(data => {
+                  if(data.rows === NULL) {
+                        window.alert('Server error')
+                  }
+
+                  document.location.replace('/catchlog')
+            })
+      , 2000)
+});

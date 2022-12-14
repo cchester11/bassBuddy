@@ -40,7 +40,23 @@ router.get('/getallcatches', (req, res) => {
                   })
             }
       })
-})
+});
+
+router.get('/find_catch_image', (req, res) => {
+      console.log('----- on find catch image route -----')
+      const id = req.body.id
+      const sql = `SELECT catch_image FROM catchLog WHERE id =  ${id}`
+
+      connection.query(sql, (rows, err) => {
+            if(err) {
+                  throw new Error(err)
+            } else {
+                  res.json({
+                        data: rows
+                  })
+            }
+      })
+});
 
 router.get('/favorites', (req, res) => {
       const sql = 'SELECT * FROM catchLog WHERE favorite = 1'
@@ -54,7 +70,7 @@ router.get('/favorites', (req, res) => {
                   })
             }
       })
-})
+});
 
 router.post('/createcatch', (req, res) => {
       console.log('made it to the route')
@@ -84,7 +100,7 @@ router.post('/createcatch', (req, res) => {
                   })
             }
       })
-})
+});
 
 router.put('/favorite', (req, res) => {
       const id = req.body.id
@@ -98,7 +114,7 @@ router.put('/favorite', (req, res) => {
                   data: rows
             })
       })
-})
+});
 
 router.post('/addimage', (req, res) => {
       const uploadToServer = upload.single('add-image-input')
@@ -112,17 +128,17 @@ router.post('/addimage', (req, res) => {
             } else {
                   const path = req.file.path
                   const id = req.body.image_id
-                  // console.log(path, id)
-                  // const sql = `UPDATE catchLog SET catch_image = '${path}' WHERE id = ${id}`
-                  // connection.query(sql, (rows, err) => {
-                  //       if(err) {
-                  //             throw new Error(err)
-                  //       }
-                  //       res.json(rows)
-                  // })
+                  console.log(path, id)
+                  const sql = `UPDATE catchLog SET catch_image = '${path}' WHERE id = ${id}`
+                  connection.query(sql, (rows, err) => {
+                        res.json({
+                              message: "image path posted to db",
+                              data: rows
+                        })
+                  })
             }
       })
-})
+});
 
 router.delete('/deletecatch', (req, res) => {
       // write our sql native query
@@ -135,6 +151,6 @@ router.delete('/deletecatch', (req, res) => {
                   data: rows
             })
       })
-})
+});
 
 module.exports = router
